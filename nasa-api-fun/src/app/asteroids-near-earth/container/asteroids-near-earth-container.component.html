@@ -6,7 +6,9 @@
         Click 
     </div>
     <div *ngIf="myTestFlag">
-        {{nearEarthAsteroids.near_earth_asteroids}}
-        fid a way to get .todayFinalModification
+        <div *ngFor="let asteroid of asteroidNearEarthArray">
+            {{asteroid.id}}<br/>
+            Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
+        </div>
     </div>
 </div>

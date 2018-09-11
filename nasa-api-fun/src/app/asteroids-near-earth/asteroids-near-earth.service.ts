@@ -11,7 +11,7 @@ const url: string = 'https://api.nasa.gov/planetary/apod?api_key=ZmjdmWmvIrbnLmt
 const nearEarthAsteroidsUrl: string = 'https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=ZmjdmWmvIrbnLmtkNTGG3ZtfP5oWqIWLYOLYEohq';
 
 @Injectable()
-export class PlanetViewerService {
+export class AsteroidsNearEarthService {
   constructor(private http: Http) {}
 
   getNearEarthAsteroids(): Observable<any> {

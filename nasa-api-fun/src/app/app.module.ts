@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { PlanetViewerModule } from './planet-viewer/planet-viewer.module';
+import { AsteroidsNearEarthModule } from './asteroids-near-earth/asteroids-near-earth.module';
 
 
 
@@ -11,7 +11,7 @@ import { PlanetViewerModule } from './planet-viewer/planet-viewer.module';
   ],
   imports: [
     BrowserModule,
-    PlanetViewerModule
+    AsteroidsNearEarthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
