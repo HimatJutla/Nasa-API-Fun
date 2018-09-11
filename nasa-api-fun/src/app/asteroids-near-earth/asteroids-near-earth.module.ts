@@ -4,12 +4,12 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';  
 
-import { PlanetViewerComponent } from './container/planet-viewer.component';
+import { AsteroidsNearEarthContainerComponent } from './container/asteroids-near-earth-container.component';
 import { HeaderComponent } from './components/header-component/header.component';
-import { PlanetViewerService } from './planet-viewer.service';
+import { AsteroidsNearEarthService } from './asteroids-near-earth.service';
 
 export const COMPONENTS = [
-  PlanetViewerComponent,
+  AsteroidsNearEarthContainerComponent,
   HeaderComponent
 
 ];
@@ -22,10 +22,10 @@ export const COMPONENTS = [
     CommonModule
   ],
   exports: [
-    PlanetViewerComponent
+    AsteroidsNearEarthContainerComponent
   ],
   providers: [
-    PlanetViewerService
+    AsteroidsNearEarthService
   ]
 })
-export class PlanetViewerModule { }
+export class AsteroidsNearEarthModule { }
