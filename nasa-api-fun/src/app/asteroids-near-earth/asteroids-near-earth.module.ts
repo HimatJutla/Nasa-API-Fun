@@ -7,11 +7,14 @@ import { CommonModule } from '@angular/common';
 import { AsteroidsNearEarthContainerComponent } from './container/asteroids-near-earth-container.component';
 import { HeaderComponent } from './components/header-component/header.component';
 import { AsteroidsNearEarthService } from './asteroids-near-earth.service';
+import { FooterComponent } from "./components/footer-component/footer.component";
+import { EarthComponent } from "./components/earth-component/earth.component";
 
 export const COMPONENTS = [
   AsteroidsNearEarthContainerComponent,
-  HeaderComponent
-
+  HeaderComponent,
+  FooterComponent,
+  EarthComponent
 ];
 
 @NgModule({

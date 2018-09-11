@@ -17,14 +17,15 @@ export class AsteroidsNearEarthContainerComponent implements OnInit{
 
   constructor(private asteroidsNearEarthService: AsteroidsNearEarthService) {}
   ngOnInit() {
+    this.callNearEarthAsteroidsService();
+  }
+
+  callNearEarthAsteroidsService() {
     this.asteroidsNearEarthService
       .getNearEarthAsteroids()
       .subscribe((data: any) => this.nearEarthAsteroids = data);
       this.todayModified = this.today.getFullYear()+'-'+(this.today.getMonth()+1)+'-'+this.today.getDate();
       this.getMonthZeroed(this.todayModified);
-
-      // this.nearEarthAsteroidsDisplay = this.nearEarthAsteroids.this.todayFinalModification;
-      // console.log(this.nearEarthAsteroidsDisplay);
   }
 
   logTestData() {
