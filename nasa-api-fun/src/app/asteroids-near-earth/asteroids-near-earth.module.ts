@@ -9,12 +9,15 @@ import { HeaderComponent } from './components/header-component/header.component'
 import { AsteroidsNearEarthService } from './asteroids-near-earth.service';
 import { FooterComponent } from "./components/footer-component/footer.component";
 import { EarthComponent } from "./components/earth-component/earth.component";
+import { AsteroidsComponent } from "./components/asteroids-component/asteroids.component";
+
 
 export const COMPONENTS = [
   AsteroidsNearEarthContainerComponent,
   HeaderComponent,
   FooterComponent,
-  EarthComponent
+  EarthComponent,
+  AsteroidsComponent
 ];
 
 @NgModule({
