@@ -1,12 +1,12 @@
 <header-component></header-component>
-    <div class="container main-body-container">
-        <div class="canvas-container">
-            <earth-component></earth-component>
-            <asteroids-component 
-                [asteroidsNearEarthInput]="asteroidNearEarthArray">
-            </asteroids-component>
-        </div>
+<div class="container main-body-container">
+    <div class="canvas-container">
+        <earth-component></earth-component>
+        <asteroids-component 
+            [asteroidsNearEarthInput]="asteroidNearEarthArray" (viewAsteroids)="handleViewAsteroids($event)">
+        </asteroids-component>
     </div>
+</div>
 <!--<div class="container">
     Data:
     <div *ngFor="let asteroid of asteroidNearEarthArray">
