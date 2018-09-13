@@ -1,0 +1,17 @@
+.main-body-container {
+    background: url('../../../assets/images/space-3.jpg');
+    background-size: 100%;
+}
+
+.canvas-container {
+    background-image: url('../../../assets/images/asteroid-for-animation.png');
+	background-position: 0px 0px;
+    background-size: 15%;
+    background-repeat: no-repeat;
+	animation: animatedAsteroid 7s linear infinite;
+}
+
+@keyframes animatedAsteroid {
+	from { background-position: 0 0; }
+	to { background-position: 100% 85%; }
+}

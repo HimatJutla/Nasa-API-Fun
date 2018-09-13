@@ -29,11 +29,10 @@ export class AsteroidsNearEarthContainerComponent implements OnInit{
   }
 
   logTestData() {
-    console.log(this.nearEarthAsteroids.near_earth_objects);
-   console.log(this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification]);
-    this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (i){
-    console.log(i.id);
-    return i;
+    // console.log(this.nearEarthAsteroids.near_earth_objects);
+    // console.log(this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification]);
+    this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
+    return index;
 });
 
     this.myTestFlag = true;
@@ -50,9 +49,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit{
     if ((monthCheck >= 2 && monthCheck < 10) || (monthCheck == 1 && monthCheckIfOne == "-")) {
       let newModifiedDate = [originalDate.slice(0, position), zero, originalDate.slice(position)].join('');
       this.todayFinalModification = newModifiedDate;
-      console.log(typeof(this.todayFinalModification));
     }
-
-    console.log(this.todayFinalModification);
   }  
 }
