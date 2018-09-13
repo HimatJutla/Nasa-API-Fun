@@ -1,6 +1,6 @@
 <div class="container asteroid-container py-5">
     <div class="row d-flex justify-content-center align-items-center">
-        <div class="btn btn-primary"  (click)="expandedAsteroidView = !expandedAsteroidView">
+        <div class="btn btn-primary"  (click)="toggleAsteroidsView()">
             <div class="button-text" *ngIf="!expandedAsteroidView">
                 View Asteroids Near Earth Today
             </div>
@@ -10,8 +10,9 @@
         </div>
     </div>
     <div class="row" *ngIf="expandedAsteroidView">
-        <div class="col-12 col-md-3" >
-            expanded view
+        <div class="col-12 col-md-3" *ngFor="let asteroid of asteroidsNearEarthInput">
+            {{asteroid.id}}<br/>
+            Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
         </div>
     </div>
 </div>
