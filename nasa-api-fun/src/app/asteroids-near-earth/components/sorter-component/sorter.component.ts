@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./sorter.component.css']
 })
 export class SorterComponent {
+
+  sortTitle:string = 'SORT BY';
+  sortFilterArray:string[] = [
+    'Is it Hazardous?',
+    'Distance From Earth?'
+  ]
 }
