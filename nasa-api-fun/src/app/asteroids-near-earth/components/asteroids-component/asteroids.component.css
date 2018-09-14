@@ -1,3 +1,16 @@
-/*.b {
-    border: 1px solid black;
-}*/
+.btn-primary {
+    background-color: #e94f64;
+    color: black;
+    border: 0;
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #e94f64 !important;
+    color: black;
+}
+
+.individual-asteroid-block {
+    border: 2px solid #656565;
+    background-color: #d6d0de;
+}

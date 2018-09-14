@@ -2,17 +2,27 @@
     <div class="row d-flex justify-content-center align-items-center">
         <div class="btn btn-primary"  (click)="toggleAsteroidsView()">
             <div class="button-text" *ngIf="!expandedAsteroidView">
-                View Asteroids Near Earth Today
+                {{ closedButtonText | uppercase}}
             </div>
             <div class="button-text" *ngIf="expandedAsteroidView">
-                Scared? Click to close the view
+                {{ openButtonText | uppercase}}
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="expandedAsteroidView">
-        <div class="col-12 col-md-3" *ngFor="let asteroid of asteroidsNearEarthInput">
-            {{asteroid.id}}<br/>
-            Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
+    <div class="row py-2 d-flex align-items-center justify-content-center" *ngIf="expandedAsteroidView">
+        <div class="col-12 sort-by-row">
+
+        </div>
+        <div class="col-12 col-md-3 individual-asteroid-block mx-3 my-3" *ngFor="let asteroid of asteroidsNearEarthInput">
+            <div class="asteroid-name-field">
+                <span>
+                    Name:&nbsp;
+                </span>
+                {{asteroid.name | asteroidNameFormatter}}
+            </div>
+            <div>
+                Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
+            </div>
         </div>
     </div>
 </div>

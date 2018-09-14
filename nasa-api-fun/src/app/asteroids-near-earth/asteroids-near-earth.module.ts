@@ -10,18 +10,22 @@ import { AsteroidsNearEarthService } from './asteroids-near-earth.service';
 import { FooterComponent } from "./components/footer-component/footer.component";
 import { EarthComponent } from "./components/earth-component/earth.component";
 import { AsteroidsComponent } from "./components/asteroids-component/asteroids.component";
+import { SorterComponent } from "./components/sorter-component/sorter.component";
+import { AsteroidNameFormatterPipe } from "./custom-pipes/asteroid-name-formatter-pipe";
 
 
-export const COMPONENTS = [
+export const COMPONENTSandPIPES = [
   AsteroidsNearEarthContainerComponent,
   HeaderComponent,
   FooterComponent,
   EarthComponent,
-  AsteroidsComponent
+  AsteroidsComponent,
+  SorterComponent,
+  AsteroidNameFormatterPipe
 ];
 
 @NgModule({
-  declarations: COMPONENTS,
+  declarations: COMPONENTSandPIPES,
   imports: [
     HttpModule,
     FormsModule,
