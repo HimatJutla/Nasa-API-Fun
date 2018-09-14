@@ -1,6 +1,15 @@
+/*.parent-container {
+    position: relative;
+}*/
+
 .main-body-container {
     background: url('../../../assets/images/space-3.jpg');
     background-size: 100%;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;*/
 }
 
 .canvas-container {

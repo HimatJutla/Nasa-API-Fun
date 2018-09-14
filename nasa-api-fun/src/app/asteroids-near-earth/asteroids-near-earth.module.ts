@@ -12,6 +12,7 @@ import { EarthComponent } from "./components/earth-component/earth.component";
 import { AsteroidsComponent } from "./components/asteroids-component/asteroids.component";
 import { SorterComponent } from "./components/sorter-component/sorter.component";
 import { AsteroidNameFormatterPipe } from "./custom-pipes/asteroid-name-formatter-pipe";
+import { IndividualAsteroidComponent } from "./components/individual-asteroid-component/individual-asteroid.component";
 
 
 export const COMPONENTSandPIPES = [
@@ -21,6 +22,7 @@ export const COMPONENTSandPIPES = [
   EarthComponent,
   AsteroidsComponent,
   SorterComponent,
+  IndividualAsteroidComponent,
   AsteroidNameFormatterPipe
 ];
 

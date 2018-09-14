@@ -28,4 +28,8 @@ export class AsteroidsComponent implements OnInit {
     }
   }
 
+  openExpandedView(event, asteroidName) {
+    console.log(asteroidName);
+  }
+
 }
