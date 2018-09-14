@@ -30,6 +30,7 @@ export class AsteroidsNearEarthContainerComponent implements OnInit{
     this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
       return index;
     });
+    console.log(this.asteroidNearEarthArray);
   }
 
   getMonthZeroed(date) {
