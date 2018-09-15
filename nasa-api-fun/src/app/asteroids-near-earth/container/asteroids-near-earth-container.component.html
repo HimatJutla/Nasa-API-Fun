@@ -4,27 +4,21 @@
     <div class="canvas-container">
         <earth-component></earth-component>
         <asteroids-component 
-            [asteroidsNearEarthInput]="asteroidNearEarthArray" (viewAsteroids)="handleViewAsteroids($event)">
+            [asteroidsNearEarthInput]="asteroidNearEarthArray"
+            [expandedAsteroidView]="expandedAsteroidViewBoolean"
+            [userPreferredViewInput]="userPreferredView"
+            [individualAstervoidViewFlagInput]="individualAstervoidViewFlag"
+            [individualNearEarthAsteroidInput]="individualNearEarthAsteroid"
+            [sortTitle]="sortTitle"
+            [sortFilterArray]="sortFilterArray"
+            (viewAsteroids)="handleViewAsteroids($event)"
+            (diameterTypeChange)="handleDiameterChange($event)"
+            (sortingParamDefined)="handleSorting($event)"
+            (viewIndividualAsteroidExpandedView)="handleOpenIndividualAsteroidExandedView($event)"
+            >
         </asteroids-component>
     </div>
 </div>
-<!--<div class="container">
-    Data:
-    <div *ngFor="let asteroid of asteroidNearEarthArray">
-            {{asteroid.id}}<br/>
-            Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
-        </div>
-    <br/>
-    <div class="" (click)="logTestData()">
-        Click 
-    </div>
-    <div *ngIf="myTestFlag">
-        <div *ngFor="let asteroid of asteroidNearEarthArray">
-            {{asteroid.id}}<br/>
-            Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
-        </div>
-    </div>
-</div>-->
 <div class="fixed-bottom">
     <footer-component></footer-component>
 </div>

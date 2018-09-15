@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'individual-asteroid',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./individual-asteroid.component.css']
 })
 export class IndividualAsteroidComponent {
+    @Input() individualNearEarthAsteroidInput: any;
 }
