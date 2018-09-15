@@ -13,6 +13,7 @@ import { AsteroidsComponent } from "./components/asteroids-component/asteroids.c
 import { SorterComponent } from "./components/sorter-component/sorter.component";
 import { AsteroidNameFormatterPipe } from "./custom-pipes/asteroid-name-formatter-pipe";
 import { IndividualAsteroidComponent } from "./components/individual-asteroid-component/individual-asteroid.component";
+import { AsteroidDiameterFormatterPipe } from "./custom-pipes/asteroid-diameter-formatter-pipe";
 
 
 export const COMPONENTSandPIPES = [
@@ -23,7 +24,8 @@ export const COMPONENTSandPIPES = [
   AsteroidsComponent,
   SorterComponent,
   IndividualAsteroidComponent,
-  AsteroidNameFormatterPipe
+  AsteroidNameFormatterPipe,
+  AsteroidDiameterFormatterPipe
 ];
 
 @NgModule({

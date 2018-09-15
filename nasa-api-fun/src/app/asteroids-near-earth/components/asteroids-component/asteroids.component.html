@@ -11,7 +11,11 @@
     </div>
     <div class="row py-2 d-flex align-items-center justify-content-center" *ngIf="expandedAsteroidView">
         <div class="col-12 sort-by-row">
-            <sorter-component></sorter-component>
+            <sorter-component 
+                [sortTitle]="sortTitle"
+                [sortFilterArray]="sortFilterArray"
+                (sortingParamDefined)="sortingParamApplied($event)">
+            </sorter-component>
         </div>
         <div class="col-12 col-md-3 individual-asteroid-block mx-3 my-3" *ngFor="let asteroid of asteroidsNearEarthInput">
             <div class="asteroid-name-field">
@@ -20,24 +24,57 @@
                 </span>
                 {{asteroid.name | asteroidNameFormatter}}
             </div>
-            <div class="d-flex flex-column asteroid-diameter-field">
+            <div class="d-flex asteroid-diameter-field">
                 <div>
                     Diameter:&nbsp;
                 </div>
-                <div>
-                    {{ asteroid.estimated_diameter.feet.estimated_diameter_max }} ft
+                <div *ngIf="userPreferredViewInput === 'feet'">
+                    {{ asteroid.estimated_diameter.feet.estimated_diameter_max | asteroidDiameterFormatter}} ft
                 </div>
-                <div>
-                    Display In: ft | m | k | m
+                <div *ngIf="userPreferredViewInput === 'kilometers'">
+                    {{ asteroid.estimated_diameter.kilometers.estimated_diameter_max | asteroidDiameterFormatter}} km
+                </div>
+                <div *ngIf="userPreferredViewInput === 'meters'">
+                    {{ asteroid.estimated_diameter.meters.estimated_diameter_max | asteroidDiameterFormatter}} m
+                </div>
+                <div *ngIf="userPreferredViewInput === 'miles'">
+                    {{ asteroid.estimated_diameter.miles.estimated_diameter_max | asteroidDiameterFormatter}} mi
                 </div>
             </div>
-            <div class="d-flex justify-content-end align-items-center asteroid-see-more-field" (click)="openExpandedView($event, asteroid.name)">
+            <div class="d-flex justify-content-end align-items-center asteroid-see-more-field"
+                (click)="openExpandedView($event, asteroid.id)">
                 See More
             </div>
             <!--<div>
                 Is hazardous?: {{asteroid.is_potentially_hazardous_asteroid}}
             </div>-->
         </div>
+        <div class="col-12 d-flex align-items-center justify-content-end">
+             <div class="d-flex">
+                    <span class="box py-2 px-2">
+                        View Asteroid Diameters In:
+                    </span>
+                    <div class="btn btn-primary btn-primary-ft" 
+                        (click)="diameterUnitDisplay($event, 'feet')">
+                        Feet
+                    </div>
+                    <div class="btn btn-primary btn-primary-km"
+                        (click)="diameterUnitDisplay($event, 'kilometers')">
+                        Kilometers
+                    </div>
+                    <div class="btn btn-primary btn-primary-m"
+                        (click)="diameterUnitDisplay($event, 'meters')">
+                        Meters
+                    </div>
+                    <div class="btn btn-primary btn-primary-mi"
+                        (click)="diameterUnitDisplay($event, 'miles')">
+                        Miles
+                    </div>
+                </div>
+        </div>
     </div>
-    <individual-asteroid></individual-asteroid>
+    <individual-asteroid 
+        *ngIf="individualAstervoidViewFlagInput"
+        [individualNearEarthAsteroidInput]="individualNearEarthAsteroidInput">
+    </individual-asteroid>
 </div>

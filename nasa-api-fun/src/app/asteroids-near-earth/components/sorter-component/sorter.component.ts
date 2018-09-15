@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sorter-component',
@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
 })
 export class SorterComponent {
 
-  sortTitle:string = 'SORT BY';
-  sortFilterArray:string[] = [
-    'Is it Hazardous?',
-    'Distance From Earth?'
-  ]
+  @Input() sortTitle:string;
+  @Input() sortFilterArray:string[];
+
+  @Output()
+  sortingParamDefined: EventEmitter<any> = new EventEmitter<any>();
+
+  sortingParamApplied(event, sortParam: string) {
+    this.sortingParamDefined.emit(sortParam);
+  }
 }
