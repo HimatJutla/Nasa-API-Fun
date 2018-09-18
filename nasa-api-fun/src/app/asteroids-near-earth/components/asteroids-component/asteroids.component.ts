@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { AsteroidNameFormatterPipe } from "../../custom-pipes/asteroid-name-formatter-pipe";
-import { AsteroidDiameterFormatterPipe } from "../../custom-pipes/asteroid-diameter-formatter-pipe";
+import { AsteroidDimensionalFormatterPipe } from "../../custom-pipes/asteroid-dimensional-formatter-pipe";
 
 @Component({
   selector: 'asteroids-component',
@@ -11,7 +11,8 @@ export class AsteroidsComponent implements OnInit {
 
   @Input() asteroidsNearEarthInput: any[];
   @Input() expandedAsteroidView: boolean;
-  @Input() userPreferredViewInput: string;
+  @Input() userDiameterPreferredView: string;
+  @Input() userSpeedPreferredViewInput: string;
   @Input() individualNearEarthAsteroidInput: any;
   @Input() individualAstervoidViewFlagInput: boolean;
   @Input() sortTitle:string;
@@ -30,7 +31,8 @@ export class AsteroidsComponent implements OnInit {
   sortingParamDefined: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit() {
-    console.log(this.userPreferredViewInput);
+    console.log(this.userDiameterPreferredView);
+    console.log(this.userSpeedPreferredViewInput);
   }
 
   toggleAsteroidsView() {
