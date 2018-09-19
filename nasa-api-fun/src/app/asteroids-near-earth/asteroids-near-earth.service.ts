@@ -18,7 +18,7 @@ export class AsteroidsNearEarthService {
       .get(nearEarthAsteroidsUrl)
       .map((response: Response) => response.json())
       .catch((error: any) => Observable.throw(error.json()));
-  }
+}
 
   // getIndividualAsteroidDetails(id): Observable<any> {
   //     return this.http

@@ -6,14 +6,16 @@
         <asteroids-component 
             [asteroidsNearEarthInput]="asteroidNearEarthArray"
             [expandedAsteroidView]="expandedAsteroidViewBoolean"
+            [noPotentiallyHazardousAsteroidsFlag]="noPotentiallyHazardousAsteroidsFlag"
             [userDiameterPreferredView]="userDiameterPreferredView"
             [userSpeedPreferredViewInput]="userSpeedPreferredViewInput"
+            [userMissDistancePreferredViewInput]="userMissDistancePreferredViewInput"
             [individualAstervoidViewFlagInput]="individualAstervoidViewFlag"
             [individualNearEarthAsteroidInput]="individualNearEarthAsteroid"
             [sortTitle]="sortTitle"
             [sortFilterArray]="sortFilterArray"
             (viewAsteroids)="handleViewAsteroids($event)"
-            (diameterTypeChange)="handleDiameterChange($event)"
+            (unitFilterTypeChange)="handleUnitFilterChange($event)"
             (sortingParamDefined)="handleSorting($event)"
             (viewIndividualAsteroidExpandedView)="handleOpenIndividualAsteroidExandedView($event)"
             >

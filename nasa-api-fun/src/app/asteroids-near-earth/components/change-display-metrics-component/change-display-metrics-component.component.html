@@ -1,0 +1,53 @@
+<div class="col-12 px-0" (click)="testFunc()">
+    Change Unit Displayed For:
+</div>
+<div class="col-12 d-flex px-0 align-items-center justify-content-between">
+    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start">
+        <div (click)="testFunc()">
+            Diameter:&nbsp;
+        </div>
+        <select (change)="displayUnitChanged($event, 'diameter', $event.target.value)">
+            <option value="feet">
+                Feet
+            </option>
+            <option value="kilometers">
+                Kilometers
+            </option>
+            <option value="meters">
+                Meters
+            </option>
+            <option value="miles">
+                Miles
+            </option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-center">
+        <div>
+            Speed:&nbsp;
+        </div>
+        <select (change)="displayUnitChanged($event, 'speed', $event.target.value)">
+            <option value="kmh">
+                Km/Hour
+            </option>
+            <option value="kms">
+                Km/Second
+            </option>
+            <option value="mph">
+                Miles/Hour
+            </option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-end">
+        <div>
+            Miss Distance:&nbsp;
+        </div>
+        <select (change)="displayUnitChanged($event, 'missDistance', $event.target.value)">
+            <option value="kilometers">
+                Kilometers
+            </option>
+            <option value="miles">
+                Miles
+            </option>
+        </select>
+    </div>
+</div>
