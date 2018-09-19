@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsteroidsNearEarthService } from '../asteroids-near-earth.service';
+import { Asteroid } from '../models/asteroid-interface';
 
 @Component({
   selector: 'asteroids-near-earth-container-component',
@@ -7,18 +8,19 @@ import { AsteroidsNearEarthService } from '../asteroids-near-earth.service';
   styleUrls: ['./asteroids-near-earth-container.component.css']
 })
 export class AsteroidsNearEarthContainerComponent implements OnInit {
-  nearEarthAsteroids: any;
+  nearEarthAsteroids: Array<Asteroid>;
   today = new Date();
   todayModified: any;
   todayFinalModification: any;
-  asteroidNearEarthArray: any[];
-  individualNearEarthAsteroid: any;
+  asteroidNearEarthArray: Array<Asteroid>;
+  individualNearEarthAsteroid: Asteroid;
   expandedAsteroidViewBoolean: boolean = false;
   individualAstervoidViewFlag: boolean = false;
   noPotentiallyHazardousAsteroidsFlag: boolean = false;
   userDiameterPreferredView: string = 'feet';
   userSpeedPreferredViewInput: string = 'kmh';
   userMissDistancePreferredViewInput: string = 'kilometers';
+  explodeEarthFlag: boolean = false;
   sortTitle:string = 'SORT BY';
   sortFilterArray:string[] = [
     'Potentially Dangerous',
@@ -45,7 +47,9 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     this.expandedAsteroidViewBoolean = !this.expandedAsteroidViewBoolean;
     if (this.expandedAsteroidViewBoolean) {
       this.createPresentationalArrayObject();
-    console.log(this.asteroidNearEarthArray);
+      console.log(this.asteroidNearEarthArray);
+    } else {
+      this.explodeEarth();
     }
   }
 
@@ -57,27 +61,14 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     });
     console.log(this.individualNearEarthAsteroid);
     this.individualAstervoidViewFlag = true;
+    console.log(this.individualAstervoidViewFlag);
   }
-
-  // handleDiameterChange(event: string) {
-  //   if (event !== this.userDiameterPreferredView) {
-  //     if (event === 'feet') {
-  //       this.userDiameterPreferredView = 'feet';
-  //     } else if (event === 'kilometers') {
-  //       this.userDiameterPreferredView = 'kilometers';
-  //     } else if ( event === 'meters') {
-  //       this.userDiameterPreferredView = 'meters';
-  //     } else {
-  //       this.userDiameterPreferredView = 'miles';
-  //     }
-  //   }
-  // }
 
   handleUnitFilterChange(event: any) {
 
     console.log('Filters:::', event.filter, event.unit);
 
-    if (event.filter === 'feet') {
+    if (event.filter === 'diameter') {
       if (event.unit !== this.userDiameterPreferredView) {
         if (event.unit === 'feet') {
           this.userDiameterPreferredView = 'feet';
@@ -114,7 +105,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     }
   }
 
-// NTS ->FINDD A WAY TO CONSOLDATE ALL SORTING ITO THE ASTEROID SRT COMPARE FUNC
   handleSorting(event: string) {
     this.callNearEarthAsteroidsService();
     if (event === 'Potentially Dangerous') {
@@ -189,20 +179,10 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     }
   }
 
-  asteroidComparisonFunction(a, b) {
-   if (a > b) {
-    return 1;
-   } else if (a < b) {
-     return -1
-   } else {
-     return 0;
-   }
-  }
-
   createPresentationalArrayObject() {
     this.todayModified = this.today.getFullYear()+'-'+(this.today.getMonth()+1)+'-'+this.today.getDate();
       this.getMonthZeroed(this.todayModified);
-      console.log(this.nearEarthAsteroids);
+      console.log("nea",this.nearEarthAsteroids);
       this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
       return index;
     });
@@ -217,5 +197,9 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
       index.missDistanceKm = Number(index.close_approach_data[0].miss_distance.kilometers);
       index.missDistanceMiles = Number(index.close_approach_data[0].miss_distance.miles);
       });
+  }
+
+  explodeEarth() {
+    this.explodeEarthFlag = true;
   }
 }

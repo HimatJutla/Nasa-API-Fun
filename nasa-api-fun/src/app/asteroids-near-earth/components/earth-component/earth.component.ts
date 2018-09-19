@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'earth-component',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./earth.component.css']
 })
 export class EarthComponent {
+  @Input() explodeEarthFlag: boolean;
+
 }

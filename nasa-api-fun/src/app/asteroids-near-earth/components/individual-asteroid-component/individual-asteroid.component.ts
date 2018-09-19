@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Asteroid } from '../../models/asteroid-interface';
 
 @Component({
   selector: 'individual-asteroid',

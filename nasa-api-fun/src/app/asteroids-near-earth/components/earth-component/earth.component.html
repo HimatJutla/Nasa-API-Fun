@@ -1,7 +1,10 @@
 <div class="container">
     <div class="d-flex justify-content-center align-items-center">
-        <div class="b">
+        <div class="b" *ngIf="!explodeEarthFlag">
             <img src="../../../../assets/images/earth-spinning.gif">
+        </div>
+        <div class="b" *ngIf="explodeEarthFlag">
+            <img src="../../../../assets/images/earth-exploding.gif">
         </div>
     </div>
 </div>
