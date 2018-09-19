@@ -17,31 +17,6 @@
                 (sortingParamDefined)="sortingParamApplied($event)">
             </sorter-component>
         </div>
-        <!--<div class="col-12 d-flex align-items-center justify-content-between">
-            <div>1</div>
-            <div>2</div>
-             <div class="d-flex">
-                    <span class="box py-2 px-2">
-                        View Asteroid Diameters In:
-                    </span>
-                    <div class="btn btn-primary btn-primary-ft" 
-                        (click)="diameterUnitDisplay($event, 'feet')">
-                        Feet
-                    </div>
-                    <div class="btn btn-primary btn-primary-km"
-                        (click)="diameterUnitDisplay($event, 'kilometers')">
-                        Kilometers
-                    </div>
-                    <div class="btn btn-primary btn-primary-m"
-                        (click)="diameterUnitDisplay($event, 'meters')">
-                        Meters
-                    </div>
-                    <div class="btn btn-primary btn-primary-mi"
-                        (click)="diameterUnitDisplay($event, 'miles')">
-                        Miles
-                    </div>
-                </div>
-        </div> -->
         <div class="col-12 change-display-metris-row">
             <change-display-metrics-component
                 [userDiameterPreferredView]="userDiameterPreferredView"
@@ -99,7 +74,7 @@
                     {{ asteroid.missDistanceKm | asteroidDimensionalFormatter }} km
                 </div>
                 <div *ngIf="userMissDistancePreferredViewInput === 'miles'">
-                    {{ asteroid.missDistanceKmMiles | asteroidDimensionalFormatter }} mi
+                    {{ asteroid.missDistanceMiles | asteroidDimensionalFormatter }} mi
                 </div>
             </div>
              <div class="d-flex asteroid-potentially-hazardous-field">
@@ -118,9 +93,11 @@
                 See More
             </div>
         </div>
+        <div class="col-12 expanded-view-modal"
+            *ngIf="individualAstervoidViewFlagInput">
+                <individual-asteroid 
+                    [individualNearEarthAsteroidInput]="individualNearEarthAsteroidInput">
+                </individual-asteroid>
+        </div>
     </div>
-    <individual-asteroid 
-        *ngIf="individualAstervoidViewFlagInput"
-        [individualNearEarthAsteroidInput]="individualNearEarthAsteroidInput">
-    </individual-asteroid>
 </div>

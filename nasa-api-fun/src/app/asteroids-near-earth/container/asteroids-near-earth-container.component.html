@@ -2,7 +2,9 @@
 <header-component></header-component>
 <div class="container main-body-container">
     <div class="canvas-container">
-        <earth-component></earth-component>
+        <earth-component
+            [explodeEarthFlag]="explodeEarthFlag">
+        </earth-component>
         <asteroids-component 
             [asteroidsNearEarthInput]="asteroidNearEarthArray"
             [expandedAsteroidView]="expandedAsteroidViewBoolean"

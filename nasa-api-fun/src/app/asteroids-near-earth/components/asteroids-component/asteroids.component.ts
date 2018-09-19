@@ -1,15 +1,17 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { AsteroidNameFormatterPipe } from "../../custom-pipes/asteroid-name-formatter-pipe";
 import { AsteroidDimensionalFormatterPipe } from "../../custom-pipes/asteroid-dimensional-formatter-pipe";
+import { Asteroid } from '../../models/asteroid-interface';
 
 @Component({
   selector: 'asteroids-component',
   templateUrl: './asteroids.component.html',
-  styleUrls: ['./asteroids.component.css']
+  styleUrls: ['./asteroids.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AsteroidsComponent implements OnInit {
 
-  @Input() asteroidsNearEarthInput: any[];
+  @Input() asteroidsNearEarthInput: Array<Asteroid>;
   @Input() expandedAsteroidView: boolean;
   @Input() noPotentiallyHazardousAsteroidsFlag: boolean;
   @Input() userDiameterPreferredView: string;
@@ -35,6 +37,7 @@ export class AsteroidsComponent implements OnInit {
   ngOnInit() {
     console.log(this.userDiameterPreferredView);
     console.log(this.userSpeedPreferredViewInput);
+    console.log(this.asteroidsNearEarthInput);
   }
 
   toggleAsteroidsView() {
@@ -43,6 +46,7 @@ export class AsteroidsComponent implements OnInit {
 
   openExpandedView(event, asteroidId) {
     this.viewIndividualAsteroidExpandedView.emit(asteroidId);
+    console.log("happened");
   }
 
   unitFilterDisplayChangeDisplay(event) {
