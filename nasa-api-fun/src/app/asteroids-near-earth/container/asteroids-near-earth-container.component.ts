@@ -15,12 +15,14 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   individualNearEarthAsteroid: any;
   expandedAsteroidViewBoolean: boolean = false;
   individualAstervoidViewFlag: boolean = false;
+  noPotentiallyHazardousAsteroidsFlag: boolean = false;
   userDiameterPreferredView: string = 'feet';
   userSpeedPreferredViewInput: string = 'kmh';
+  userMissDistancePreferredViewInput: string = 'kilometers';
   sortTitle:string = 'SORT BY';
   sortFilterArray:string[] = [
-    'Could Hit Earth',
-    'Closest to Earth',
+    'Potentially Dangerous',
+    'Closest Miss Distance',
     'Fastest to Slowest',
     'Largest to Smallest'
 ];
@@ -36,20 +38,13 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     this.asteroidsNearEarthService
       .getNearEarthAsteroids()
       .subscribe((data: any) => this.nearEarthAsteroids = data);
-      alert("called");
       console.log(this.nearEarthAsteroids);
   }
 
   handleViewAsteroids(event) {
     this.expandedAsteroidViewBoolean = !this.expandedAsteroidViewBoolean;
     if (this.expandedAsteroidViewBoolean) {
-      this.todayModified = this.today.getFullYear()+'-'+(this.today.getMonth()+1)+'-'+this.today.getDate();
-      this.getMonthZeroed(this.todayModified);
-      console.log(this.nearEarthAsteroids);
-      this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
-      return index;
-    });
-    this.convertNeededStringToNumbers();
+      this.createPresentationalArrayObject();
     console.log(this.asteroidNearEarthArray);
     }
   }
@@ -64,45 +59,92 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     this.individualAstervoidViewFlag = true;
   }
 
-  handleDiameterChange(event: string) {
-    if (event !== this.userDiameterPreferredView) {
-      if (event === 'feet') {
-        this.userDiameterPreferredView = 'feet';
-      } else if (event === 'kilometers') {
-        this.userDiameterPreferredView = 'kilometers';
-      } else if ( event === 'meters') {
-        this.userDiameterPreferredView = 'meters';
-      } else {
-        this.userDiameterPreferredView = 'miles';
+  // handleDiameterChange(event: string) {
+  //   if (event !== this.userDiameterPreferredView) {
+  //     if (event === 'feet') {
+  //       this.userDiameterPreferredView = 'feet';
+  //     } else if (event === 'kilometers') {
+  //       this.userDiameterPreferredView = 'kilometers';
+  //     } else if ( event === 'meters') {
+  //       this.userDiameterPreferredView = 'meters';
+  //     } else {
+  //       this.userDiameterPreferredView = 'miles';
+  //     }
+  //   }
+  // }
+
+  handleUnitFilterChange(event: any) {
+
+    console.log('Filters:::', event.filter, event.unit);
+
+    if (event.filter === 'feet') {
+      if (event.unit !== this.userDiameterPreferredView) {
+        if (event.unit === 'feet') {
+          this.userDiameterPreferredView = 'feet';
+        } else if (event.unit === 'kilometers') {
+          this.userDiameterPreferredView = 'kilometers';
+        } else if (event.unit === 'meters') {
+          this.userDiameterPreferredView = 'meters';
+        } else {
+          this.userDiameterPreferredView = 'miles';
+        }
+      }
+    }
+
+    else if (event.filter === 'speed') {
+      if (event.unit !== this.userSpeedPreferredViewInput) {
+         if (event.unit === 'kmh') {
+          this.userSpeedPreferredViewInput = 'kmh';
+        } else if (event.unit === 'kms') {
+          this.userSpeedPreferredViewInput = 'kms';
+        }  else {
+          this.userSpeedPreferredViewInput = 'mph';
+        }
+      }
+    }
+
+    else {
+      if (event.unit !== this.userMissDistancePreferredViewInput) {
+         if (event.unit === 'kilometers') {
+          this.userMissDistancePreferredViewInput = 'kilometers';
+        } else {
+          this.userMissDistancePreferredViewInput = 'miles';
+        }
       }
     }
   }
 
-// NTS ->maybe just keep modifig the existing array instead of adding new ones && FINDD A WAY TO CONSOLDATE ALL SORTING ITO THE ASTEROID SRT COMPARE FUNC
+// NTS ->FINDD A WAY TO CONSOLDATE ALL SORTING ITO THE ASTEROID SRT COMPARE FUNC
   handleSorting(event: string) {
-
-    if (event === 'Could Hit Earth') {
-      this.callNearEarthAsteroidsService();
-      this.asteroidNearEarthArray = this.asteroidNearEarthArray.map((index) => {
-        if (index.is_potentially_hazardous_asteroid) {
-          return index;
+    this.callNearEarthAsteroidsService();
+    if (event === 'Potentially Dangerous') {
+      this.asteroidNearEarthArray = this.asteroidNearEarthArray.filter((index) => {
+          return index.is_potentially_hazardous_asteroid;
+      });
+      console.log(this.asteroidNearEarthArray);
+      if (this.asteroidNearEarthArray.length == 0) {
+        this.noPotentiallyHazardousAsteroidsFlag = true;
+      }
+    }
+    
+    else if (event === 'Closest Miss Distance') {
+      this.noPotentiallyHazardousAsteroidsFlag = false;
+      this.createPresentationalArrayObject();
+      this.asteroidNearEarthArray = this.asteroidNearEarthArray.sort((a,b) => {
+        if (a.close_approach_data[0].miss_distance.kilometers > b.close_approach_data[0].miss_distance.kilometers) {
+          return 1;
+        } else if (a.close_approach_data[0].miss_distance.kilometers < b.close_approach_data[0].miss_distance.kilometers) {
+          return -1
+        } else {
+          return 0;
         }
       });
       console.log(this.asteroidNearEarthArray);
-    }
-    
-    else if (event === 'Closest to Earth') {
-      // this.callNearEarthAsteroidsService();
-      // this.asteroidNearEarthArray = this.asteroidNearEarthArray.map((index) => {
-      //   if (index.is_potentially_hazardous_asteroid) {
-      //     return index;
-      //   }
-      // });
-      console.log('Cloest');
     } 
     
     else if (event === 'Fastest to Slowest') {
-      this.callNearEarthAsteroidsService();
+      this.noPotentiallyHazardousAsteroidsFlag = false;
+      this.createPresentationalArrayObject();
       this.asteroidNearEarthArray = this.asteroidNearEarthArray.sort((a,b) => {
         if (a.close_approach_data[0].relative_velocity.kilometers_per_hour > b.close_approach_data[0].relative_velocity.kilometers_per_hour) {
           return -1;
@@ -116,6 +158,8 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     } 
     
     else if (event === 'Largest to Smallest') {
+      this.noPotentiallyHazardousAsteroidsFlag = false;
+      this.createPresentationalArrayObject();
       this.asteroidNearEarthArray = this.asteroidNearEarthArray.sort((a,b) => {
         if (a.estimated_diameter.feet.estimated_diameter_max > b.estimated_diameter.feet.estimated_diameter_max) {
           return -1;
@@ -155,11 +199,23 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
    }
   }
 
+  createPresentationalArrayObject() {
+    this.todayModified = this.today.getFullYear()+'-'+(this.today.getMonth()+1)+'-'+this.today.getDate();
+      this.getMonthZeroed(this.todayModified);
+      console.log(this.nearEarthAsteroids);
+      this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
+      return index;
+    });
+    this.convertNeededStringToNumbers();
+  }
+
   convertNeededStringToNumbers() {
     this.asteroidNearEarthArray.map((index) => {
       index.speedKiloPerHour = Number(index.close_approach_data[0].relative_velocity.kilometers_per_hour);
       index.speedKiloPerSecond = Number(index.close_approach_data[0].relative_velocity.kilometers_per_second);
       index.speedMilesPerHour = Number(index.close_approach_data[0].relative_velocity.miles_per_hour);
+      index.missDistanceKm = Number(index.close_approach_data[0].miss_distance.kilometers);
+      index.missDistanceMiles = Number(index.close_approach_data[0].miss_distance.miles);
       });
   }
 }

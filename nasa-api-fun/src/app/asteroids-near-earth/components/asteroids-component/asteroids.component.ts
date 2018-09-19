@@ -11,8 +11,10 @@ export class AsteroidsComponent implements OnInit {
 
   @Input() asteroidsNearEarthInput: any[];
   @Input() expandedAsteroidView: boolean;
+  @Input() noPotentiallyHazardousAsteroidsFlag: boolean;
   @Input() userDiameterPreferredView: string;
   @Input() userSpeedPreferredViewInput: string;
+  @Input() userMissDistancePreferredViewInput: string;
   @Input() individualNearEarthAsteroidInput: any;
   @Input() individualAstervoidViewFlagInput: boolean;
   @Input() sortTitle:string;
@@ -24,7 +26,7 @@ export class AsteroidsComponent implements OnInit {
   @Output()
   viewAsteroids: EventEmitter<any> = new EventEmitter<any>();
   @Output()
-  diameterTypeChange: EventEmitter<any> = new EventEmitter<any>();
+  unitFilterTypeChange: EventEmitter<any> = new EventEmitter<any>();
   @Output()
   viewIndividualAsteroidExpandedView: EventEmitter<any> = new EventEmitter<any>();
   @Output()
@@ -43,8 +45,9 @@ export class AsteroidsComponent implements OnInit {
     this.viewIndividualAsteroidExpandedView.emit(asteroidId);
   }
 
-  diameterUnitDisplay(event, unit: string) {
-    this.diameterTypeChange.emit(unit);
+  unitFilterDisplayChangeDisplay(event) {
+    console.log("filerrr caledddd", event.filter, event.unit);
+    this.unitFilterTypeChange.emit(event);
   }
 
   sortingParamApplied(sortingParam: string) {

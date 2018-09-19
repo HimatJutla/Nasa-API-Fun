@@ -18,3 +18,7 @@
 .box {
     background-color: gray;
 }
+.change-display-metris-row {
+    background-color: white;
+    border: 1px solid red;
+}
