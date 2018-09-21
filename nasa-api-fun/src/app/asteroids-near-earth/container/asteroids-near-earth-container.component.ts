@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsteroidsNearEarthService } from '../asteroids-near-earth.service';
-import { Asteroid } from '../models/asteroid-interface';
+import { Asteroid, AsteroidParent } from '../models/asteroid-interface';
 
 @Component({
   selector: 'asteroids-near-earth-container-component',
@@ -8,11 +8,12 @@ import { Asteroid } from '../models/asteroid-interface';
   styleUrls: ['./asteroids-near-earth-container.component.css']
 })
 export class AsteroidsNearEarthContainerComponent implements OnInit {
-  nearEarthAsteroids: Array<Asteroid>;
+  nearEarthAsteroids: AsteroidParent;
   today = new Date();
   todayModified: any;
   todayFinalModification: any;
   asteroidNearEarthArray: Array<Asteroid>;
+  individualAsteroidFilterer: any;
   individualNearEarthAsteroid: Asteroid;
   expandedAsteroidViewBoolean: boolean = false;
   individualAstervoidViewFlag: boolean = false;
@@ -36,6 +37,11 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
       this.callNearEarthAsteroidsService();
   }
 
+  closeModal() {
+    console.log("called");
+    this.individualAstervoidViewFlag = false;
+  }
+
   callNearEarthAsteroidsService() {
     this.asteroidsNearEarthService
       .getNearEarthAsteroids()
@@ -54,12 +60,13 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   }
 
   handleOpenIndividualAsteroidExandedView(event) {
-    this.individualNearEarthAsteroid = this.asteroidNearEarthArray.find((astroIndex) => {
-      if (astroIndex.id == event) {
-        return astroIndex;
+    this.asteroidNearEarthArray.map((astroIndex)=> {
+      if (astroIndex.id === event) {
+        this.individualNearEarthAsteroid = astroIndex;
+        this.individualAstervoidViewFlag = true;
       }
     });
-    console.log(this.individualNearEarthAsteroid);
+    console.log('IV:::::', this.individualNearEarthAsteroid);
     this.individualAstervoidViewFlag = true;
     console.log(this.individualAstervoidViewFlag);
   }
@@ -196,6 +203,11 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
       index.speedMilesPerHour = Number(index.close_approach_data[0].relative_velocity.miles_per_hour);
       index.missDistanceKm = Number(index.close_approach_data[0].miss_distance.kilometers);
       index.missDistanceMiles = Number(index.close_approach_data[0].miss_distance.miles);
+      index.aphelionDistance = Number(index.orbital_data.aphelion_distance);
+      index.inclination = Number(index.orbital_data.inclination);
+      index.absoluteMagnitude = Number(index.absolute_magnitude_h);
+      index.perihilionArgument = Number(index.orbital_data.perihelion_argument);
+      index.semiMajorAxis = Number(index.orbital_data.semi_major_axis);
       });
   }
 

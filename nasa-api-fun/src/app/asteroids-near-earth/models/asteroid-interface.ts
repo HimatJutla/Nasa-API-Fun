@@ -62,6 +62,11 @@ export interface Asteroid {
     speedKiloPerHour?: number,
     speedKiloPerSecond?: number,
     speedMilesPerHour?: number,
+    aphelionDistance?: number,
+    inclination?: number,
+    absoluteMagnitude?: number,
+    perihilionArgument?: number,
+    semiMajorAxis?: number,
     near_earth_objects?: any
 }
 
@@ -79,5 +84,11 @@ export interface closeApproachData {
         kilometers_per_hour: string,
         kilometers_per_second: string,
         miles_per_hour: string
+    }
+}
+
+export interface AsteroidParent {
+    near_earth_objects: {
+        Asteroid
     }
 }
