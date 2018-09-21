@@ -1,3 +1,156 @@
-<div class="tst">
-    {{individualNearEarthAsteroidInput.id}}
+   <div class="row main-title-row"> 
+    <div class="col-12 d-flex align-items-center justify-content-between">
+        <div>
+            <span>
+                Name:
+            </span>
+            {{individualNearEarthAsteroid.name | asteroidNameFormatter}}
+        </div>
+        <div>
+            <span>
+                Potentially Dangerous?
+            </span>
+            <span class="" *ngIf="individualNearEarthAsteroid.is_potentially_hazardous_asteroid">
+                Yes
+            </span>
+            <span class="" *ngIf="!individualNearEarthAsteroid.is_potentially_hazardous_asteroid">
+                No
+            </span>
+        </div>
+    </div>
 </div>
+<div class="row">
+    <div class="col-12 title-col">
+        Size:
+    </div>
+    <div class="col-12 d-flex justify-content-md-between">
+        <div class="col-12 col-md-3">
+            <span>
+                Feet:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.estimated_diameter.feet.estimated_diameter_max | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Kilometers:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.estimated_diameter.kilometers.estimated_diameter_max | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Miles:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.estimated_diameter.miles.estimated_diameter_max | asteroidDimensionalFormatter}}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 title-col">
+        Speed:
+    </div>
+    <div class="col-12 d-flex justify-content-md-between">
+        <div class="col-12 col-md-3">
+            <span>
+                Km/ Hour:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.speedKiloPerHour | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Km/ Second:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.speedKiloPerSecond | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Miles/ Hour:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.speedMilesPerHour | asteroidDimensionalFormatter}}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 title-col">
+        Miss Distance:
+    </div>
+    <div class="col-12 d-flex justify-content-md-between">
+        <div class="col-12 col-md-4">
+            <span>
+                Kilometers:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.missDistanceKm | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-4">
+            <span>
+                Miles:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.missDistanceMiles | asteroidDimensionalFormatter}}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 title-col">
+        Observation Data:
+    </div>
+    <div class="col-12 d-flex justify-content-md-between">
+        <div class="col-12 col-md-3">
+            <span>
+                First Observed:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.orbital_data.first_observation_date}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Last Observed:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.orbital_data.last_observation_date}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                # of Observations:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.orbital_data.observations_used}}
+        </div>
+    </div>
+    <div class="col-12 d-flex justify-content-md-between">
+        <div class="col-12 col-md-3">
+            <span>
+                Aphelion Distance:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.aphelionDistance | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Inclination:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.inclination | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Equinox:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.orbital_data.equinox}}
+        </div>
+    </div>
+    <div class="col-12 d-flex justify-content-md-between">
+        <div class="col-12 col-md-3">
+            <span>
+                Magnitude:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.absoluteMagnitude | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Perihilion:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.perihilionArgument | asteroidDimensionalFormatter}}
+        </div>
+        <div class="col-12 col-md-3">
+            <span>
+                Axis:&nbsp;
+            </span>
+            {{individualNearEarthAsteroid.semiMajorAxis | asteroidDimensionalFormatter}}
+        </div>
+    </div>
+</div>
+

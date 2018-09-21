@@ -2,6 +2,30 @@
 <header-component></header-component>
 <div class="container main-body-container">
     <div class="canvas-container">
+        <div class="modal"
+    [ngClass]="{
+        'hidden':!individualAstervoidViewFlag,
+        'block-display':individualAstervoidViewFlag
+    }">
+    <div class="col-12 d-flex justify-content-end">
+        <span class="close"
+            (click)="closeModal()">
+            &times;
+        </span>
+    </div>
+    <div class="col-12" *ngIf="individualAstervoidViewFlag">
+        <individual-asteroid
+            [individualNearEarthAsteroid]="individualNearEarthAsteroid">
+        </individual-asteroid>
+    </div>
+</div>
+<div class="modal-backdrop"
+    (click)="closeModal()"
+    [ngClass]="{
+        'hidden':!individualAstervoidViewFlag,
+        'block-display':individualAstervoidViewFlag
+    }">
+</div>
         <earth-component
             [explodeEarthFlag]="explodeEarthFlag">
         </earth-component>
@@ -12,8 +36,6 @@
             [userDiameterPreferredView]="userDiameterPreferredView"
             [userSpeedPreferredViewInput]="userSpeedPreferredViewInput"
             [userMissDistancePreferredViewInput]="userMissDistancePreferredViewInput"
-            [individualAstervoidViewFlagInput]="individualAstervoidViewFlag"
-            [individualNearEarthAsteroidInput]="individualNearEarthAsteroid"
             [sortTitle]="sortTitle"
             [sortFilterArray]="sortFilterArray"
             (viewAsteroids)="handleViewAsteroids($event)"

@@ -17,8 +17,6 @@ export class AsteroidsComponent implements OnInit {
   @Input() userDiameterPreferredView: string;
   @Input() userSpeedPreferredViewInput: string;
   @Input() userMissDistancePreferredViewInput: string;
-  @Input() individualNearEarthAsteroidInput: any;
-  @Input() individualAstervoidViewFlagInput: boolean;
   @Input() sortTitle:string;
   @Input() sortFilterArray:string[];
 
