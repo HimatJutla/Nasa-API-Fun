@@ -29,7 +29,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     'Fastest to Slowest',
     'Largest to Smallest'
 ];
-// sortCouldHitEarthArray: any[];
   
 
   constructor(private asteroidsNearEarthService: AsteroidsNearEarthService) {}
@@ -51,6 +50,7 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
 
   handleViewAsteroids(event) {
     this.expandedAsteroidViewBoolean = !this.expandedAsteroidViewBoolean;
+    console.log(this.expandedAsteroidViewBoolean);
     if (this.expandedAsteroidViewBoolean) {
       this.createPresentationalArrayObject();
       console.log(this.asteroidNearEarthArray);

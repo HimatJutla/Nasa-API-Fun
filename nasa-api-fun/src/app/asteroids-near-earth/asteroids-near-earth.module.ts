@@ -15,17 +15,17 @@ import { AsteroidNameFormatterPipe } from "./custom-pipes/asteroid-name-formatte
 import { IndividualAsteroidComponent } from "./components/individual-asteroid-component/individual-asteroid.component";
 import { AsteroidDimensionalFormatterPipe } from "./custom-pipes/asteroid-dimensional-formatter-pipe";
 import { ChangeDisplayMetricsComponent } from "./components/change-display-metrics-component/change-display-metrics-component.component";
+import { NoDangerousAsteroidsTodayComponent } from "./components/no-dangerous-asteroids-today/no-dangerous-asteroids-today.component";
 
 
 export const COMPONENTSandPIPES = [
   AsteroidsNearEarthContainerComponent,
-  HeaderComponent,
-  FooterComponent,
   EarthComponent,
   AsteroidsComponent,
   SorterComponent,
   ChangeDisplayMetricsComponent,
   IndividualAsteroidComponent,
+  NoDangerousAsteroidsTodayComponent,
   AsteroidNameFormatterPipe,
   AsteroidDimensionalFormatterPipe
 ];

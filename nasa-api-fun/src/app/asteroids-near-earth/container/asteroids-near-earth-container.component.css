@@ -1,15 +1,20 @@
-/*.parent-container {
-    position: relative;
-}*/
-
 .main-body-container {
     background: url('../../../assets/images/space-3.jpg');
     background-size: 100%;
-    /*position: absolute;
+    position: absolute;
+}
+
+.center-when-closed {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;*/
+    width: 100%;
+}
+
+.shift-top-when-opened {
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .canvas-container {
@@ -62,4 +67,18 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+@media ( max-width : 1024px) {
+    .modal {
+        width: 85% !important;
+    }
+}
+
+@media ( max-width : 767px) {
+    .modal {
+        width: 100% !important;
+        height: 100vh;
+    }
 }
