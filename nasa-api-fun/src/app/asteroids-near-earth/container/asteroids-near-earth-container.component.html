@@ -1,5 +1,5 @@
 <div class="parent-container">
-<div class="container main-body-container"
+<div class="container main-body-container pt-4"
     [ngClass]="{
         'center-when-closed': !expandedAsteroidViewBoolean,
         'shift-top-when-opened': expandedAsteroidViewBoolean
@@ -10,8 +10,8 @@
         'hidden':!individualAstervoidViewFlag,
         'block-display':individualAstervoidViewFlag
     }">
-    <div class="col-12 d-flex justify-content-end">
-        <span class="close"
+    <div class="col-12 d-flex justify-content-end pb-3">
+        <span class="x-button"
             (click)="closeModal()">
             &times;
         </span>

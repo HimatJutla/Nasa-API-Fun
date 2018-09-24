@@ -15,10 +15,52 @@ body {
     text-transform: none !important;
 }
 
+.big-content {
+    font-size: 20px;
+}
+
 .sub-title {
     font-weight: 600;
 }
 
 .parent-layout-container {
     background-color: black;
+}
+
+.underline {
+    border-bottom: 1px solid #e94464;
+}
+
+@media ( max-width : 1024px) {
+}
+
+@media ( max-width : 767px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .big-title {
+        font-size: 16px;
+    }
+
+    .big-content {
+        font-size: 16px;
+    }
+
+}
+
+@media ( max-width : 321px) {
+
+    body {
+        font-size: 12px;
+    }
+
+    .big-title {
+        font-size: 14px;
+    }
+
+    .big-content {
+        font-size: 14px;
+    }
 }
