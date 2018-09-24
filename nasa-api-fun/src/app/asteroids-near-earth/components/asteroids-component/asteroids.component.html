@@ -1,15 +1,21 @@
 <div class="container asteroid-container py-5">
     <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-12 col-md-6 col-lg-4 btn btn-primary"  (click)="toggleAsteroidsView()">
-            <div class="button-text" *ngIf="!expandedAsteroidView">
-                {{ closedButtonText | uppercase}}
+        <div class="col-12 col-lg-8 btn btn-primary"
+            (click)="toggleAsteroidsView()">
+            <div class="big-title" *ngIf="!expandedAsteroidView">
+                <strong>
+                    {{ closedButtonText | uppercase}}
+                </strong>
             </div>
             <div class="button-text" *ngIf="expandedAsteroidView">
-                {{ openButtonText | uppercase}}
+                <strong>
+                    {{ openButtonText | uppercase}}
+                </strong>
             </div>
         </div>
     </div>
-    <div class="row py-2 d-flex align-items-center justify-content-center" *ngIf="expandedAsteroidView">
+    <div class="row py-2 d-flex align-items-center justify-content-center"
+        *ngIf="expandedAsteroidView">
         <div class="col-12 sort-by-row">
             <sorter-component 
                 [sortTitle]="sortTitle"
@@ -25,18 +31,20 @@
                 (unitFilterTypeChange)="unitFilterDisplayChangeDisplay($event)">
             </change-display-metrics-component>
         </div>
-        <div class="col-12 no-hazardous-asteroids-view" *ngIf="noPotentiallyHazardousAsteroidsFlag">
-            No potentially dangerous asteroids today :) 
+        <div class="col-12 no-hazardous-asteroids-view"
+            *ngIf="noPotentiallyHazardousAsteroidsFlag">
+            <no-dangerous-asteroids-today></no-dangerous-asteroids-today>
         </div>
-        <div class="col-12 col-md-3 individual-asteroid-block mx-3 my-3" *ngFor="let asteroid of asteroidsNearEarthInput">
+        <div class="col-12 col-md-3 individual-asteroid-block mx-3 my-3"
+            *ngFor="let asteroid of asteroidsNearEarthInput">
             <div class="asteroid-name-field">
-                <span>
+                <span class="sub-title">
                     Name:&nbsp;
                 </span>
                 {{asteroid.name | asteroidNameFormatter}}
             </div>
             <div class="d-flex asteroid-diameter-field">
-                <div>
+                <div class="sub-title">
                     Diameter:&nbsp;
                 </div>
                 <div *ngIf="userDiameterPreferredView === 'feet'">
@@ -53,7 +61,7 @@
                 </div>
             </div>
             <div class="d-flex asteroid-speed-field">
-                <div>
+                <div class="sub-title">
                     Speed:&nbsp;
                 </div>
                 <div *ngIf="userSpeedPreferredViewInput === 'kmh'">
@@ -67,7 +75,7 @@
                 </div>
             </div>
             <div class="d-flex asteroid-miss-distance-field">
-                <div>
+                <div class="sub-title">
                     Miss Distance:&nbsp;
                 </div>
                 <div *ngIf="userMissDistancePreferredViewInput === 'kilometers'">
@@ -78,7 +86,7 @@
                 </div>
             </div>
              <div class="d-flex asteroid-potentially-hazardous-field">
-                <div>
+                <div class="sub-title">
                     Potentially Dangerous:&nbsp;
                 </div>
                 <div *ngIf="asteroid.is_potentially_hazardous_asteroid">
@@ -88,7 +96,7 @@
                     No
                 </div>
             </div>
-            <div class="d-flex justify-content-end align-items-center asteroid-see-more-field"
+            <div class="d-flex justify-content-end align-items-center asteroid-see-more-field sub-title"
                 (click)="openExpandedView($event, asteroid.id)">
                 See More
             </div>

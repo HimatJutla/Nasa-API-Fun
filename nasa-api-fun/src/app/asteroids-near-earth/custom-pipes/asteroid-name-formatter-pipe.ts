@@ -4,7 +4,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class AsteroidNameFormatterPipe implements PipeTransform {
 
   transform(nameText: string) {
-    return nameText.slice(1, -1);
+    let nameTextSliced = nameText.slice(1, -1);
+    nameTextSliced = nameTextSliced.replace(/[\])}[{(]/g, '');
+    return nameTextSliced;
   }
 
 }

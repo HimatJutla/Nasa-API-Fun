@@ -1,1 +1,24 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+body {
+    font-family:Raleway,sans-serif;
+    font-style:normal;
+    font-weight:400;
+    color: black;
+    font-size: 16px;
+}
+
+.big-title {
+    font-weight: 1000;
+    font-size: 20px;
+    text-transform: none !important;
+}
+
+.sub-title {
+    font-weight: 600;
+}
+
+.parent-layout-container {
+    background-color: black;
+}

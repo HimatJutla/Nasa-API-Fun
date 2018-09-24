@@ -1,6 +1,9 @@
 <div class="parent-container">
-<header-component></header-component>
-<div class="container main-body-container">
+<div class="container main-body-container"
+    [ngClass]="{
+        'center-when-closed': !expandedAsteroidViewBoolean,
+        'shift-top-when-opened': expandedAsteroidViewBoolean
+    }">
     <div class="canvas-container">
         <div class="modal"
     [ngClass]="{
@@ -45,8 +48,5 @@
             >
         </asteroids-component>
     </div>
-</div>
-<div class="fixed-bottom">
-    <footer-component></footer-component>
 </div>
 </div>

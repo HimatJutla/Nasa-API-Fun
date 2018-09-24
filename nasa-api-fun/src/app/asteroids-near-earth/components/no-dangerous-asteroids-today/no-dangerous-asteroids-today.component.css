@@ -1,0 +1,10 @@
+.no-dangerous-asteroids-container {
+    border: 2px solid #656565;
+    background-color: #d6d0de;
+    height: 15vh;
+}
+
+.smiley-face {
+    height: 7px;
+    width: 7px;
+}
