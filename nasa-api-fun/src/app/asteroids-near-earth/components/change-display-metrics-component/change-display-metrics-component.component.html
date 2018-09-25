@@ -2,11 +2,29 @@
     Change Unit Displayed For:
 </div>
 <div class="col-12 d-md-flex px-0 align-items-md-center justify-content-md-between mt-4 mb-4">
-    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start">
-        <div class="sub-title metric-title d-flex align-items-sm-center justify-content-sm-end d-md-block">
-            Diameter:&nbsp;
+    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-center mb-2 mb-md-0">
+        <div class="sub-title metric-title d-flex align-items-sm-center justify-content-end d-md-block pr-2 pr-md-0">
+            Speed:&nbsp;&nbsp;
         </div>
-        <select (change)="displayUnitChanged($event, 'diameter', $event.target.value)">
+        <select class="metric-dropdown"
+            (change)="displayUnitChanged($event, 'speed', $event.target.value)">
+            <option value="kmh">
+                Km/Hour
+            </option>
+            <option value="kms">
+                Km/Second
+            </option>
+            <option value="mph">
+                Miles/Hour
+            </option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start mb-2 mb-md-0">
+        <div class="sub-title metric-title d-flex align-items-sm-center justify-content-end d-md-block pr-2 pr-md-0">
+            Diameter:&nbsp;&nbsp;
+        </div>
+        <select class="metric-dropdown"
+            (change)="displayUnitChanged($event, 'diameter', $event.target.value)">
             <option value="feet">
                 Feet
             </option>
@@ -21,27 +39,12 @@
             </option>
         </select>
     </div>
-    <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-center">
-        <div class="sub-title">
-            Speed:&nbsp;
-        </div>
-        <select (change)="displayUnitChanged($event, 'speed', $event.target.value)">
-            <option value="kmh">
-                Km/Hour
-            </option>
-            <option value="kms">
-                Km/Second
-            </option>
-            <option value="mph">
-                Miles/Hour
-            </option>
-        </select>
-    </div>
     <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-end">
-        <div class="sub-title">
-            Miss Distance:&nbsp;
+        <div class="sub-title metric-title d-flex align-items-sm-center justify-content-end d-md-block pr-2 pr-md-0">
+            Miss Distance:&nbsp;&nbsp;
         </div>
-        <select (change)="displayUnitChanged($event, 'missDistance', $event.target.value)">
+        <select class="metric-dropdown"
+            (change)="displayUnitChanged($event, 'missDistance', $event.target.value)">
             <option value="kilometers">
                 Kilometers
             </option>
