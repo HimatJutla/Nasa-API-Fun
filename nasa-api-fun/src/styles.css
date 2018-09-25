@@ -31,6 +31,17 @@ body {
     border-bottom: 1px solid #e94464;
 }
 
+.hover-parent {
+    cursor: pointer;
+}
+
+.hover-parent:hover,
+.hover-parent:focus,
+.hover-parent:active {
+    color: #e94f64;
+}
+
+
 @media ( max-width : 1024px) {
 }
 

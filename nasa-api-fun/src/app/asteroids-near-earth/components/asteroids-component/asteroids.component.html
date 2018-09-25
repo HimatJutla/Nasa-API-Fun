@@ -2,12 +2,12 @@
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-12 col-lg-8 btn btn-primary"
             (click)="toggleAsteroidsView()">
-            <div class="big-title" *ngIf="!expandedAsteroidView">
+            <div class="big-title py-1" *ngIf="!expandedAsteroidView">
                 <strong>
                     {{ closedButtonText | uppercase}}
                 </strong>
             </div>
-            <div class="button-text" *ngIf="expandedAsteroidView">
+            <div class="big-title py-1" *ngIf="expandedAsteroidView">
                 <strong>
                     {{ openButtonText | uppercase}}
                 </strong>
@@ -16,14 +16,14 @@
     </div>
     <div class="row py-2 d-flex align-items-center justify-content-center"
         *ngIf="expandedAsteroidView">
-        <div class="col-12 sort-by-row">
+        <div class="col-12 sort-by-row my-3">
             <sorter-component 
                 [sortTitle]="sortTitle"
                 [sortFilterArray]="sortFilterArray"
                 (sortingParamDefined)="sortingParamApplied($event)">
             </sorter-component>
         </div>
-        <div class="col-12 change-display-metris-row">
+        <div class="col-12 change-display-metris-row mb-3">
             <change-display-metrics-component
                 [userDiameterPreferredView]="userDiameterPreferredView"
                 [userSpeedPreferredViewInput]="userSpeedPreferredViewInput"
@@ -35,7 +35,7 @@
             *ngIf="noPotentiallyHazardousAsteroidsFlag">
             <no-dangerous-asteroids-today></no-dangerous-asteroids-today>
         </div>
-        <div class="col-12 col-md-5 col-lg-3 individual-asteroid-block mx-md-3 my-3"
+        <div class="col-12 col-md-5 col-lg-3 individual-asteroid-block mx-md-3 mb-3 py-2"
             *ngFor="let asteroid of asteroidsNearEarthInput">
             <div class="asteroid-name-field">
                 <span class="sub-title">
@@ -96,7 +96,7 @@
                     No
                 </div>
             </div>
-            <div class="d-flex justify-content-end align-items-center asteroid-see-more-field sub-title"
+            <div class="d-flex justify-content-end align-items-center hover-parent sub-title"
                 (click)="openExpandedView($event, asteroid.id)">
                 See More
             </div>
