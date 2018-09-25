@@ -5,11 +5,11 @@
     text-transform: none !important;
 }
 
-.btn-primary:focus,
-.btn-primary:active {
-    background-color: #e94f64 !important;
-    color: black;
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    background-color: #e5c454 !important;
+    color: black !important;
 }
+
 
 .individual-asteroid-block {
     border: 2px solid #656565;
@@ -17,6 +17,6 @@
 }
 
 .change-display-metris-row {
-    background-color: white;
-    border: 1px solid red;
+    background-color: #e94f64;
+    /*border: 1px solid #e5c454;*/
 }

@@ -1,9 +1,9 @@
-<div class="col-12 px-0">
+<div class="col-12 px-0 big-title text-center mt-4 unit-title">
     Change Unit Displayed For:
 </div>
-<div class="col-12 d-md-flex px-0 align-items-md-center justify-content-md-between">
+<div class="col-12 d-md-flex px-0 align-items-md-center justify-content-md-between mt-4 mb-4">
     <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start">
-        <div>
+        <div class="sub-title metric-title d-flex align-items-sm-center justify-content-sm-end d-md-block">
             Diameter:&nbsp;
         </div>
         <select (change)="displayUnitChanged($event, 'diameter', $event.target.value)">
@@ -22,7 +22,7 @@
         </select>
     </div>
     <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-center">
-        <div>
+        <div class="sub-title">
             Speed:&nbsp;
         </div>
         <select (change)="displayUnitChanged($event, 'speed', $event.target.value)">
@@ -38,7 +38,7 @@
         </select>
     </div>
     <div class="col-12 col-md-4 px-0 d-flex align-items-center justify-content-start justify-content-md-end">
-        <div>
+        <div class="sub-title">
             Miss Distance:&nbsp;
         </div>
         <select (change)="displayUnitChanged($event, 'missDistance', $event.target.value)">

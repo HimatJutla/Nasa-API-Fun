@@ -1,3 +1,30 @@
-.bg {
-    background-color: white;
+.sorter-row {
+    background-color: #e5c454;
+    border: 1px solid #e94464;
+}
+
+.individual-sorter {
+    border-radius: 25px;
+    width: 23% !important;
+    background-color: #e94464;
+    cursor: pointer;
+}
+
+.individual-sorter:hover,
+.individual-sorter:focus,
+.individual-sorter:active {
+    background-color: #d6d0de;
+    color: #e94464;
+}
+
+@media ( max-width : 1024px) {
+    .individual-sorter {
+        width: 48% !important;
+    }
+}
+
+@media ( max-width : 767px) {
+    .individual-sorter {
+        width: 100% !important;
+    }
 }
