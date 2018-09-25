@@ -2,7 +2,16 @@
     border-bottom: 1px solid black;
 }
 
-/* WORKING THROUGH MOBIL FIX FOR THIS ROW */
-.metric-title {
-    color: blue;
+@media ( max-width : 1024px) {
+}
+
+@media ( max-width : 767px) {
+    .metric-title {
+        width: 35%;
+        text-align: right;
+    }
+
+    .metric-dropdown {
+        width: 65%;
+    }
 }
