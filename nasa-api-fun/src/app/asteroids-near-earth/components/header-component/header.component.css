@@ -4,10 +4,6 @@
     overflow: hidden;
 }
 
-.header-container {
-    height: 8vh;
-}
-
 .spinning-asteroid {
     width: 60px;
     height: 48px;
@@ -23,12 +19,17 @@
 }
 
 @media ( max-width : 767px) {
-    .mobile-100 {
-    width: 100%;
-    }
 
     .spinning-asteroid {
         width: 30px;
         height: 24px;
+    }
+}
+
+@media ( max-width : 350px) {
+
+    .spinning-asteroid {
+        width: 20px;
+        height: 16px;
     }
 }
