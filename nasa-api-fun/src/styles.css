@@ -68,16 +68,24 @@ body {
         font-size: 16px;
     }
 
+    .mobile-100 {
+        width: 100%;
+    }
+
+    .mobile-center{
+        text-align: center;
+    }
+
 }
 
-@media ( max-width : 321px) {
+@media ( max-width : 360px) {
 
     body {
         font-size: 12px;
     }
 
     .super-big-title {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .big-title {

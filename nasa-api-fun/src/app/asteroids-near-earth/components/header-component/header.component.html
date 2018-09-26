@@ -1,15 +1,14 @@
 <div class="header">
-    <div class="container header-container d-block d-md-flex align-items-center justify-content-between">
-        <div class="super-big-title mobile-100">
+    <div class="container header-container d-block d-md-flex align-items-center justify-content-between py-2">
+        <div class="super-big-title mobile-100 mb-3 mb-md-0 mobile-center">
             <strong class="px-1 underline">
                 ASTEROIDS NEAR EARTH TODAY
             </strong>
-            <!--<img class="spinning-asteroid" src="../../../../assets/images/spinning-asteroid-2.gif">-->
-            <img class="pl-2 spinning-asteroid" src="../../../../assets/images/spinning-asteroid.gif">
+            <img class="pl-2 spinning-asteroid" src="../../../../assets/images/spinning-asteroid.gif" alt="Asteroid spinning">
         </div>
-        <div class="big-title mobile-100">
+        <div class="big-title mobile-100 mb-2 mb-md-0 mobile-center">
             <span class="date-col px-2 py-2">
-                {{ dateToday | date:'shortDate' }}
+                Date: {{ dateToday | date:'shortDate' }}
             </span>
         </div>
     </div>

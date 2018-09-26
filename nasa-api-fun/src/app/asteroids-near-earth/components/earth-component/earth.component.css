@@ -1,3 +1,6 @@
-/*.b {
-    border: 1px solid black;
-}*/
+@media ( max-width : 360px) {
+    .earth-image {
+        width: 150px;
+        height: 150px;
+    }
+}

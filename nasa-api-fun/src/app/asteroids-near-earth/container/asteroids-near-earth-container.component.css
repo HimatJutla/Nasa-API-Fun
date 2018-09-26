@@ -47,6 +47,9 @@
     border: 1px solid #e94464;
     width: 100% !important;
     height: max-content;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;*/
 }
 
 .modal-backdrop {
@@ -74,4 +77,12 @@
 }
 
 @media ( max-width : 767px) {
+}
+
+@media ( max-width : 350px) {
+
+    .shift-top-when-opened {
+        top: 20%;
+    }
+
 }
