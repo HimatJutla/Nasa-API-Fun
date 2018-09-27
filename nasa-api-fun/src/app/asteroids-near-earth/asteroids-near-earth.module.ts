@@ -16,6 +16,7 @@ import { IndividualAsteroidComponent } from "./components/individual-asteroid-co
 import { AsteroidDimensionalFormatterPipe } from "./custom-pipes/asteroid-dimensional-formatter-pipe";
 import { ChangeDisplayMetricsComponent } from "./components/change-display-metrics-component/change-display-metrics-component.component";
 import { NoDangerousAsteroidsTodayComponent } from "./components/no-dangerous-asteroids-today/no-dangerous-asteroids-today.component";
+import { EarthExplodedMessageComponent } from "./components/earth-exploded-message/earth-exploded-message.component";
 
 
 export const COMPONENTSandPIPES = [
@@ -26,6 +27,7 @@ export const COMPONENTSandPIPES = [
   ChangeDisplayMetricsComponent,
   IndividualAsteroidComponent,
   NoDangerousAsteroidsTodayComponent,
+  EarthExplodedMessageComponent,
   AsteroidNameFormatterPipe,
   AsteroidDimensionalFormatterPipe
 ];

@@ -11,7 +11,7 @@ body {
 
 .super-big-title {
     font-weight: 1000;
-    font-size: 26px;
+    font-size: 36px;
 }
 
 .big-title {
@@ -48,6 +48,10 @@ body {
 
 
 @media ( max-width : 1024px) {
+    .super-big-title {
+        font-weight: 1000;
+        font-size: 29px;
+    }
 }
 
 @media ( max-width : 767px) {
@@ -57,7 +61,7 @@ body {
     }
 
     .super-big-title {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .big-title {

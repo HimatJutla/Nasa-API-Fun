@@ -4,12 +4,16 @@
         'center-when-closed': !expandedAsteroidViewBoolean,
         'shift-top-when-opened': expandedAsteroidViewBoolean
     }">
-    <div class="canvas-container">
+    <div class="canvas-container" [class.]=""
+        [ngClass]="{
+                'canvas-container':!explodeEarthAsteroidFlag,
+                'explode-earth-container':explodeEarthAsteroidFlag
+        }">
         <div class="modal"
-    [ngClass]="{
-        'hidden':!individualAstervoidViewFlag,
-        'block-display':individualAstervoidViewFlag
-    }">
+            [ngClass]="{
+                'hidden':!individualAstervoidViewFlag,
+                'block-display':individualAstervoidViewFlag
+            }">
     <div class="col-12 d-flex justify-content-end pb-1">
         <span class="x-button"
             (click)="closeModal()">
@@ -30,12 +34,15 @@
     }">
 </div>
         <earth-component
-            [explodeEarthFlag]="explodeEarthFlag">
+            [explodeEarthFlag]="explodeEarthFlag"
+            [displayNasaMessage]="displayNasaMessage">
         </earth-component>
         <asteroids-component 
             [asteroidsNearEarthInput]="asteroidNearEarthArray"
             [expandedAsteroidView]="expandedAsteroidViewBoolean"
             [noPotentiallyHazardousAsteroidsFlag]="noPotentiallyHazardousAsteroidsFlag"
+            [explodeEarthFlag]="explodeEarthFlag"
+            [displayNasaMessage]="displayNasaMessage"
             [userDiameterPreferredView]="userDiameterPreferredView"
             [userSpeedPreferredViewInput]="userSpeedPreferredViewInput"
             [userMissDistancePreferredViewInput]="userMissDistancePreferredViewInput"

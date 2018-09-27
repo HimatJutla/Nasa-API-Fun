@@ -30,6 +30,19 @@
 	to { background-position: 100% 85%; }
 }
 
+.explode-earth-container {
+    background-image: url('../../../assets/images/asteroid-to-explode-earth.png');
+	background-position: 0px 0px;
+    background-size: 15%;
+    background-repeat: no-repeat;
+	animation: animatedAsteroidExplodingEarth .75s linear 1;
+}
+
+@keyframes animatedAsteroidExplodingEarth {
+	from { background-position: 100% 0; }
+	to { background-position: 50% 42%; }
+}
+
 .hidden {
     display: none;
 }
@@ -47,9 +60,10 @@
     border: 1px solid #e94464;
     width: 100% !important;
     height: max-content;
-    /*position: absolute;
+    position: fixed;
     top: 50%;
-    left: 50%;*/
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modal-backdrop {

@@ -18,10 +18,12 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   expandedAsteroidViewBoolean: boolean = false;
   individualAstervoidViewFlag: boolean = false;
   noPotentiallyHazardousAsteroidsFlag: boolean = false;
+  displayNasaMessage: boolean = false;
   userDiameterPreferredView: string = 'feet';
   userSpeedPreferredViewInput: string = 'kmh';
   userMissDistancePreferredViewInput: string = 'kilometers';
   explodeEarthFlag: boolean = false;
+  explodeEarthAsteroidFlag: boolean = false;
   sortTitle:string = 'SORT BY';
   sortFilterArray:string[] = [
     'Potentially Dangerous',
@@ -212,6 +214,14 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   }
 
   explodeEarth() {
-    this.explodeEarthFlag = true;
+    this.explodeEarthAsteroidFlag = true;
+    setTimeout(() => {
+        this.explodeEarthFlag = true;
+        this.explodeEarthAsteroidFlag = false;
+    }, 730);
+    setTimeout(() => {
+        this.explodeEarthFlag = false;
+        this.displayNasaMessage = true;
+    }, 5000);
   }
 }

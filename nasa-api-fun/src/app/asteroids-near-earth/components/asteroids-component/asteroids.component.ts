@@ -14,6 +14,8 @@ export class AsteroidsComponent implements OnInit {
   @Input() asteroidsNearEarthInput: Array<Asteroid>;
   @Input() expandedAsteroidView: boolean;
   @Input() noPotentiallyHazardousAsteroidsFlag: boolean;
+  @Input() explodeEarthFlag: boolean;
+  @Input() displayNasaMessage: boolean;
   @Input() userDiameterPreferredView: string;
   @Input() userSpeedPreferredViewInput: string;
   @Input() userMissDistancePreferredViewInput: string;
