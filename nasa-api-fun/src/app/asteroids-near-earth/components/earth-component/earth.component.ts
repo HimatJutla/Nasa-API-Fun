@@ -6,6 +6,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./earth.component.css']
 })
 export class EarthComponent {
+
   @Input() explodeEarthFlag: boolean;
+  @Input() displayNasaMessage: boolean;
 
 }

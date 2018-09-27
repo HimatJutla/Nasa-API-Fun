@@ -1,10 +1,14 @@
 <div class="container">
     <div class="d-flex justify-content-center align-items-center">
-        <div *ngIf="!explodeEarthFlag">
+        <div *ngIf="!explodeEarthFlag && !displayNasaMessage">
             <img class="earth-image" src="../../../../assets/images/earth-spinning.gif" alt="Earth spinning">
         </div>
+        <div class="col-12 col-md-6 nasa-message-block"
+            *ngIf="displayNasaMessage">
+            <earth-exploded-message></earth-exploded-message>
+        </div>
         <div *ngIf="explodeEarthFlag">
-            <img class="earth-exloding-image" src="../../../../assets/images/earth-exploding.gif" alt="Earth exploding">
+            <img class="mt-2 pt-5 earth-exloding-image" src="../../../../assets/images/earth-exploding.gif" alt="Earth exploding">
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 <div class="container asteroid-container py-5">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-12 col-lg-8 btn btn-primary"
+            *ngIf="!explodeEarthFlag || !displayNasaMessage"
             (click)="toggleAsteroidsView()">
             <div class="big-title py-1" *ngIf="!expandedAsteroidView">
                 <strong>

@@ -1,3 +1,9 @@
+.nasa-message-block {
+    padding: 10% 3% 10% 3%;
+    /*margin-top: 15%;
+    margin-bottom: 15%;*/
+}
+
 @media ( max-width : 360px) {
     .earth-image {
         width: 150px;

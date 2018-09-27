@@ -1,5 +1,6 @@
 .header {
     background-color: #e5c454;
+    border-top: 2px solid #e94464;
     border-bottom: 2px solid #e94464;
     overflow: hidden;
 }
