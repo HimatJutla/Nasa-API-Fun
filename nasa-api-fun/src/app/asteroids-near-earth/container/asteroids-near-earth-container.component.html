@@ -4,7 +4,7 @@
         'center-when-closed': !expandedAsteroidViewBoolean,
         'shift-top-when-opened': expandedAsteroidViewBoolean
     }">
-    <div class="canvas-container" [class.]=""
+    <div class="canvas-container"
         [ngClass]="{
                 'canvas-container':!explodeEarthAsteroidFlag,
                 'explode-earth-container':explodeEarthAsteroidFlag
@@ -35,14 +35,14 @@
 </div>
         <earth-component
             [explodeEarthFlag]="explodeEarthFlag"
-            [displayNasaMessage]="displayNasaMessage">
+            [displayNasaMessage]="displayNasaMessage"
+            (restoreEarth)="handleRestorEarth($event)">
         </earth-component>
         <asteroids-component 
             [asteroidsNearEarthInput]="asteroidNearEarthArray"
             [expandedAsteroidView]="expandedAsteroidViewBoolean"
             [noPotentiallyHazardousAsteroidsFlag]="noPotentiallyHazardousAsteroidsFlag"
-            [explodeEarthFlag]="explodeEarthFlag"
-            [displayNasaMessage]="displayNasaMessage"
+            [displayViewAsteroidsButton]="displayViewAsteroidsButton"
             [userDiameterPreferredView]="userDiameterPreferredView"
             [userSpeedPreferredViewInput]="userSpeedPreferredViewInput"
             [userMissDistancePreferredViewInput]="userMissDistancePreferredViewInput"

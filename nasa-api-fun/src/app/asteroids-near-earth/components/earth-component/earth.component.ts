@@ -10,4 +10,11 @@ export class EarthComponent {
   @Input() explodeEarthFlag: boolean;
   @Input() displayNasaMessage: boolean;
 
+  @Output()
+  restoreEarth: EventEmitter<any> = new EventEmitter<any>();
+
+  emitRestoreEarth(event) {
+    this.restoreEarth.emit();
+  }
+
 }

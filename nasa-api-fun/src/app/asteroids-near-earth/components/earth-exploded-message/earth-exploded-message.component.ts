@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'earth-exploded-message',
@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class EarthExplodedMessageComponent {
 
+  @Output()
+  restoreEarth: EventEmitter<any> = new EventEmitter<any>();
+
   saveThePlanet(event) {
-    alert("planet saved");
+    this.restoreEarth.emit();
   }
+
 }

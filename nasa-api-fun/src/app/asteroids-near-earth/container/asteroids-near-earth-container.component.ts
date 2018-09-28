@@ -18,6 +18,7 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   expandedAsteroidViewBoolean: boolean = false;
   individualAstervoidViewFlag: boolean = false;
   noPotentiallyHazardousAsteroidsFlag: boolean = false;
+  displayViewAsteroidsButton: boolean = true;
   displayNasaMessage: boolean = false;
   userDiameterPreferredView: string = 'feet';
   userSpeedPreferredViewInput: string = 'kmh';
@@ -39,7 +40,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   }
 
   closeModal() {
-    console.log("called");
     this.individualAstervoidViewFlag = false;
   }
 
@@ -47,15 +47,12 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     this.asteroidsNearEarthService
       .getNearEarthAsteroids()
       .subscribe((data: any) => this.nearEarthAsteroids = data);
-      console.log(this.nearEarthAsteroids);
   }
 
   handleViewAsteroids(event) {
     this.expandedAsteroidViewBoolean = !this.expandedAsteroidViewBoolean;
-    console.log(this.expandedAsteroidViewBoolean);
     if (this.expandedAsteroidViewBoolean) {
       this.createPresentationalArrayObject();
-      console.log(this.asteroidNearEarthArray);
     } else {
       this.explodeEarth();
     }
@@ -68,14 +65,10 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
         this.individualAstervoidViewFlag = true;
       }
     });
-    console.log('IV:::::', this.individualNearEarthAsteroid);
     this.individualAstervoidViewFlag = true;
-    console.log(this.individualAstervoidViewFlag);
   }
 
   handleUnitFilterChange(event: any) {
-
-    console.log('Filters:::', event.filter, event.unit);
 
     if (event.filter === 'diameter') {
       if (event.unit !== this.userDiameterPreferredView) {
@@ -120,7 +113,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
       this.asteroidNearEarthArray = this.asteroidNearEarthArray.filter((index) => {
           return index.is_potentially_hazardous_asteroid;
       });
-      console.log(this.asteroidNearEarthArray);
       if (this.asteroidNearEarthArray.length == 0) {
         this.noPotentiallyHazardousAsteroidsFlag = true;
       }
@@ -138,7 +130,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
           return 0;
         }
       });
-      console.log(this.asteroidNearEarthArray);
     } 
     
     else if (event === 'Fastest to Slowest') {
@@ -153,7 +144,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
           return 0;
         }
       });
-      console.log(this.asteroidNearEarthArray);
     } 
     
     else if (event === 'Largest to Smallest') {
@@ -168,12 +158,16 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
           return 0;
         }
       });
-      console.log(this.asteroidNearEarthArray);
     } 
     
     else {
       this.callNearEarthAsteroidsService();
     }
+  }
+
+  handleRestorEarth(event) {
+    this.displayNasaMessage = false;
+    this.displayViewAsteroidsButton = true;
   }
 
   getMonthZeroed(date) {
@@ -191,7 +185,6 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   createPresentationalArrayObject() {
     this.todayModified = this.today.getFullYear()+'-'+(this.today.getMonth()+1)+'-'+this.today.getDate();
       this.getMonthZeroed(this.todayModified);
-      console.log("nea",this.nearEarthAsteroids);
       this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
       return index;
     });
@@ -214,6 +207,7 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
   }
 
   explodeEarth() {
+    this.displayViewAsteroidsButton = false;
     this.explodeEarthAsteroidFlag = true;
     setTimeout(() => {
         this.explodeEarthFlag = true;

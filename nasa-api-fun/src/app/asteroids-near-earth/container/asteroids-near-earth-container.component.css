@@ -91,12 +91,18 @@
 }
 
 @media ( max-width : 767px) {
+    .shift-top-when-opened {
+        top: 16%;
+    }
+    .explode-earth-container {
+        background-size: 20%;
+    }
 }
 
 @media ( max-width : 350px) {
 
     .shift-top-when-opened {
-        top: 20%;
+        top: 25%;
     }
 
 }

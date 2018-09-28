@@ -5,7 +5,9 @@
         </div>
         <div class="col-12 col-md-6 nasa-message-block"
             *ngIf="displayNasaMessage">
-            <earth-exploded-message></earth-exploded-message>
+            <earth-exploded-message
+                (restoreEarth)="emitRestoreEarth($event)">
+            </earth-exploded-message>
         </div>
         <div *ngIf="explodeEarthFlag">
             <img class="mt-2 pt-5 earth-exloding-image" src="../../../../assets/images/earth-exploding.gif" alt="Earth exploding">
