@@ -14,8 +14,7 @@ export class AsteroidsComponent implements OnInit {
   @Input() asteroidsNearEarthInput: Array<Asteroid>;
   @Input() expandedAsteroidView: boolean;
   @Input() noPotentiallyHazardousAsteroidsFlag: boolean;
-  @Input() explodeEarthFlag: boolean;
-  @Input() displayNasaMessage: boolean;
+  @Input() displayViewAsteroidsButton: boolean;
   @Input() userDiameterPreferredView: string;
   @Input() userSpeedPreferredViewInput: string;
   @Input() userMissDistancePreferredViewInput: string;
@@ -34,11 +33,7 @@ export class AsteroidsComponent implements OnInit {
   @Output()
   sortingParamDefined: EventEmitter<any> = new EventEmitter<any>();
 
-  ngOnInit() {
-    console.log(this.userDiameterPreferredView);
-    console.log(this.userSpeedPreferredViewInput);
-    console.log(this.asteroidsNearEarthInput);
-  }
+  ngOnInit() {}
 
   toggleAsteroidsView() {
       this.viewAsteroids.emit();
@@ -46,11 +41,9 @@ export class AsteroidsComponent implements OnInit {
 
   openExpandedView(event, asteroidId) {
     this.viewIndividualAsteroidExpandedView.emit(asteroidId);
-    console.log("happened");
   }
 
   unitFilterDisplayChangeDisplay(event) {
-    console.log("filerrr caledddd", event.filter, event.unit);
     this.unitFilterTypeChange.emit(event);
   }
 

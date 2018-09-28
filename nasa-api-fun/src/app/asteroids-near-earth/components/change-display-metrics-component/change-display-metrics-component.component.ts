@@ -15,7 +15,6 @@ export class ChangeDisplayMetricsComponent {
   unitFilterTypeChange: EventEmitter<any> = new EventEmitter<any>();
 
   displayUnitChanged($event, filter: string, unit: string) {
-    console.log("clicked", filter, unit);
     let unitAndFilterToEmit = {
       filter: filter,
       unit: unit
