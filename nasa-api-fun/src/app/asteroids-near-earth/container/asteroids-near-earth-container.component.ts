@@ -174,17 +174,27 @@ export class AsteroidsNearEarthContainerComponent implements OnInit {
     let originalDate = date;
     let monthCheck = date.charAt(5);
     let monthCheckIfOne = date.charAt(6);
+    let monthCheckIfDateOne = date.charAt(8);
     let position = 5;
+    let monthCheckDateOnePosition = 8;
     let zero = '0';
+
     if ((monthCheck >= 2 && monthCheck < 10) || (monthCheck == 1 && monthCheckIfOne == "-")) {
       let newModifiedDate = [originalDate.slice(0, position), zero, originalDate.slice(position)].join('');
       this.todayFinalModification = newModifiedDate;
+    }
+
+    if (monthCheckIfDateOne >=2 && monthCheckIfDateOne <=9) {
+      let newModifiedDate = [originalDate.slice(0, monthCheckDateOnePosition), zero, originalDate.slice(monthCheckDateOnePosition)].join('');
+      this.todayFinalModification = newModifiedDate;
+      console.log("executed");
     }
   }
 
   createPresentationalArrayObject() {
     this.todayModified = this.today.getFullYear()+'-'+(this.today.getMonth()+1)+'-'+this.today.getDate();
       this.getMonthZeroed(this.todayModified);
+      console.log(this.todayFinalModification);
       this.asteroidNearEarthArray = this.nearEarthAsteroids.near_earth_objects[this.todayFinalModification].map(function (index){
       return index;
     });
