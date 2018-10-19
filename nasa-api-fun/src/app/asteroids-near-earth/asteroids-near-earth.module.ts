@@ -18,6 +18,10 @@ import { ChangeDisplayMetricsComponent } from "./components/change-display-metri
 import { NoDangerousAsteroidsTodayComponent } from "./components/no-dangerous-asteroids-today/no-dangerous-asteroids-today.component";
 import { EarthExplodedMessageComponent } from "./components/earth-exploded-message/earth-exploded-message.component";
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, effects } from './store';
+
 
 export const COMPONENTSandPIPES = [
   AsteroidsNearEarthContainerComponent,
@@ -37,7 +41,9 @@ export const COMPONENTSandPIPES = [
   imports: [
     HttpModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    StoreModule.forFeature('asteroids', reducers),
+    EffectsModule.forFeature(effects),
   ],
   exports: [
     AsteroidsNearEarthContainerComponent

@@ -5,6 +5,10 @@ import { AsteroidsNearEarthModule } from './asteroids-near-earth/asteroids-near-
 import { HeaderComponent } from "./asteroids-near-earth/components/header-component/header.component";
 import { FooterComponent } from "./asteroids-near-earth/components/footer-component/footer.component";
 
+import { StoreModule, MetaReducer } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+
 const COMPONENTS = [
   HeaderComponent,
   FooterComponent
@@ -17,7 +21,9 @@ const COMPONENTS = [
   ],
   imports: [
     BrowserModule,
-    AsteroidsNearEarthModule
+    AsteroidsNearEarthModule,
+    // StoreModule.forRoot(),
+    //EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
